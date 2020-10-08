@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+
+        <menuitem id="product_details_main"
+                  name="Détails article"
+                  parent="sale.menu_sale_config"
+                  sequence="6"/>
+
+        <menuitem id ="hbs_maker"
+                  parent="product_details_main"
+                  name="Fabricant"
+                  sequence="10"
+                  action="hbs_maker_action"/>
+
+        <menuitem id ="hbs_grade"
+                  parent="product_details_main"
+                  name="Grade"
+                  sequence="20"
+                  action="hbs_grade_action"/>
+
+        <menuitem id ="hbs_model"
+                  parent="product_details_main"
+                  name="Modèle"
+                  sequence="30"
+                  action="hbs_model_action"/>
+
+        <menuitem id ="hbs_screen_resolution"
+                  parent="product_details_main"
+                  name="Résolution écran"
+                  sequence="40"
+                  action="hbs_screen_resolution_action"/>
+
+        <menuitem id ="hbs_screen_size"
+                  parent="product_details_main"
+                  name="Taille écran"
+                  sequence="50"
+                  action="hbs_screen_size_action"/>
+
+        <menuitem id ="hbs_cpu"
+                  parent="product_details_main"
+                  name="CPU"
+                  sequence="60"
+                  action="hbs_cpu_action"/>
+
+        <menuitem id ="hbs_ram_size"
+                  parent="product_details_main"
+                  name="Taille RAM"
+                  sequence="70"
+                  action="hbs_ram_size_action"/>
+
+        <menuitem id ="hbs_ram_technology"
+                  parent="product_details_main"
+                  name="Technologie RAM"
+                  sequence="80"
+                  action="hbs_ram_technology_action"/>
+
+        <menuitem id ="hbs_hard_disk_size"
+                  parent="product_details_main"
+                  name="Taille disque dur"
+                  sequence="90"
+                  action="hbs_hard_disk_size_action"/>
+
+        <menuitem id ="hbs_hard_disk_technology"
+                  parent="product_details_main"
+                  name="Technologie disque dur"
+                  sequence="100"
+                  action="hbs_hard_disk_technology_action"/>
+
+        <!--<menuitem id ="hbs_graphic_card_size"-->
+                  <!--parent="product_details_main"-->
+                  <!--name="Taille Carte graphique"-->
+                  <!--sequence="110"-->
+                  <!--action="hbs_graphic_card_size_action"/>-->
+
+        <menuitem id ="hbs_graphic_card_technology"
+                  parent="product_details_main"
+                  name="Carte graphique"
+                  sequence="110"
+                  action="hbs_graphic_card_technology_action"/>
+
+        <menuitem id ="hbs_keyboard"
+                  parent="product_details_main"
+                  name="Clavier"
+                  sequence="130"
+                  action="hbs_keyboard_action"/>
+
+        <menuitem id ="hbs_form_factor"
+                  parent="product_details_main"
+                  name="Facteur de forme"
+                  sequence="140"
+                  action="hbs_form_factor_action"/>
+
+        <menuitem id ="hbs_core_number"
+                  parent="product_details_main"
+                  name="Nombre de core"
+                  sequence="150"
+                  action="hbs_core_number_action"/>
+
+    </data>
+</odoo>

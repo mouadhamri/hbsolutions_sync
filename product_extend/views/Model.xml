@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- model record start -->
+        <!-- tree view -->
+        <record model="ir.ui.view" id="hbs_model_tree_view">
+            <field name="name">hbs.model.tree.view</field>
+            <field name="type">tree</field>
+            <field name="model">hbs.model</field>
+            <field name="arch" type="xml">
+                <tree string="Modèle">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="hbs_category"/>
+                    <field name="screen_size"/>
+                    <field name="ram_technology"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record model="ir.ui.view" id="hbs_model_form_view">
+            <field name="name">hbs.model.form.view</field>
+            <field name="type">form</field>
+            <field name="model">hbs.model</field>
+            <field name="arch" type="xml" >
+                <form string="Modèle">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="hbs_category"/>
+                            </group>
+                            <group>
+                                <field name="screen_size"/>
+                                <field name="ram_technology"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record model="ir.ui.view" id="hbs_model_search_view">
+            <field name="name">hbs.model.search.view</field>
+            <field name="model">hbs.model</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Modèle">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="screen_size"/>
+                    <field name="ram_technology"/>
+                    <field name="hbs_category"/>
+                    <separator/>
+                </search>
+            </field>
+        </record>
+        <!-- action record -->
+        <record model="ir.actions.act_window" id="hbs_model_action">
+            <field name="name">Modèle</field>
+            <field name="res_model">hbs.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hbs_model_tree_view"/>
+        </record>
+        <!-- model record end -->
+    </data>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- keyboard record start -->
+        <!-- tree view -->
+        <record model="ir.ui.view" id="hbs_form_factor_tree_view">
+            <field name="name">hbs.form.factor.tree.view</field>
+            <field name="type">tree</field>
+            <field name="model">hbs.form.factor</field>
+            <field name="arch" type="xml">
+                <tree string="facteur de forme">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record model="ir.ui.view" id="hbs_form_factor_form_view">
+            <field name="name">hbs.form.factor.form.view</field>
+            <field name="type">form</field>
+            <field name="model">hbs.form.factor</field>
+            <field name="arch" type="xml" >
+                <form string="facteur de forme">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record model="ir.ui.view" id="hbs_form_factor_search_view">
+            <field name="name">hbs.form.factor.search.view</field>
+            <field name="model">hbs.form.factor</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="facteur de forme">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <separator/>
+                </search>
+            </field>
+        </record>
+        <!-- action record -->
+        <record model="ir.actions.act_window" id="hbs_form_factor_action">
+            <field name="name">facteur de forme</field>
+            <field name="res_model">hbs.form.factor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hbs_form_factor_tree_view"/>
+        </record>
+        <!-- keyboard record end -->
+    </data>
+</odoo>

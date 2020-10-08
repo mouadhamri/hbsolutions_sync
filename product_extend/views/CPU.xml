@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- cpu record start -->
+        <!-- tree view -->
+        <record model="ir.ui.view" id="hbs_cpu_tree_view">
+            <field name="name">hbs.cpu.tree.view</field>
+            <field name="type">tree</field>
+            <field name="model">hbs.cpu</field>
+            <field name="arch" type="xml">
+                <tree string="CPU">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="name_code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record model="ir.ui.view" id="hbs_cpu_form_view">
+            <field name="name">hbs.cpu.form.view</field>
+            <field name="type">form</field>
+            <field name="model">hbs.cpu</field>
+            <field name="arch" type="xml" >
+                <form string="CPU">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                                <field name="name_code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record model="ir.ui.view" id="hbs_cpu_search_view">
+            <field name="name">hbs.cpu.search.view</field>
+            <field name="model">hbs.cpu</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="CPU">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="name_code"/>
+                </search>
+            </field>
+        </record>
+        <!-- action record -->
+        <record model="ir.actions.act_window" id="hbs_cpu_action">
+            <field name="name">CPU</field>
+            <field name="res_model">hbs.cpu</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hbs_cpu_tree_view"/>
+        </record>
+        <!-- cpu record end -->
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="report_product_template_all_in_one_barcode"
+            string="PC all in one"
+            model="stock.production.lot"
+            report_type="qweb-pdf"
+            name="product_extend.report_producttemplatebarcodeallinone"
+            file="product_extend.report_producttemplatebarcodeallinone"
+            print_report_name="'All in one - %s' % (object.name)"
+        />
+
+        <report
+            id="report_product_template_all_monitor"
+            string="Monitor"
+            model="stock.production.lot"
+            report_type="qweb-pdf"
+            name="product_extend.report_producttemplatebarcodemonitor"
+            file="product_extend.report_producttemplatebarcodemonitor"
+            print_report_name="'Monitor - %s' % (object.name)"
+        />
+
+        <report id="action_product_template_all_in_one_barcode_zpl"
+            model="stock.production.lot"
+            string="PC all in one (ZPL)"
+            name="product_extend.report_product_template_all_in_one_barcode_zpl"
+            file="product_extend.report_product_template_all_in_one_barcode_zpl"
+            report_type="qweb-text"
+        />
+
+        <report id="action_report_product_template_monitor_barcode_zpl"
+            model="stock.production.lot"
+            string="Monitor (ZPL)"
+            name="product_extend.product_template_monitor_barcode_zpl"
+            file="product_extend.product_template_monitor_barcode_zpl"
+            report_type="qweb-text"
+        />
+
+    </data>
+</odoo>

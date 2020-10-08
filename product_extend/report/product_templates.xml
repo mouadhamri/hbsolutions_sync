@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+         <template id="product_template_monitor_barcode_zpl">
+            <t t-foreach="docs" t-as="lot">
+^XA
+^CI28
+^FO10,10^GB790,380,1,B,1^FS
+^FO150,20
+^A0N,20,15^FDCODE ARTICLE HBS^FS
+^FO50,50^BY3
+^BCN,40,Y,N,N
+^FD<t t-esc="lot.product_id.barcode"/>^FS
+^FO600,20
+^A0N,20,15^FDETAT^FS
+^FO750,20
+^A0N,20,15^FD<t t-esc="lot.product_id.product_state"/>^FS
+^FO600,50
+^A0N,20,15^FDGRADE^FS
+^FO750,50
+^A0N,20,15^FD<t t-esc="lot.product_id.grade.name"/>^FS
+^FO600,80
+^A0N,20,15^FDRAYE^FS
+^FO 750, 80 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.screen_raye == True">
+^FO 750, 80 ^GD 25, 25, 2 ^FS
+^FO 750, 80 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO600,110
+^A0N,20,15^FDTACHE^FS
+^FO 750, 110 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.screen_tache == True">
+^FO 750, 110 ^GD 25, 25, 2 ^FS
+^FO 750, 110 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO600,140
+^A0N,20,15^FDCASSE^FS
+^FO 750, 140 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.screen_casse == True">
+^FO 750, 140 ^GD 25, 25, 2 ^FS
+^FO 750, 140 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO50,130
+^A0N,20,15^FDMARQUE:^FS
+^FO130,130
+^A0N,20,15^FD<t t-esc="lot.product_id.maker.name"/>^FS
+^FO50,155
+^A0N,20,15^FDMODELE:^FS
+^FO130,155
+^A0N,20,15^FD<t t-esc="lot.product_id.model.name"/>^FS
+^FO50,180
+^A0N,20,15^FDCONNECTIQUE:^FS
+^FO120,180
+^A0N,20,15^FD<t t-esc="lot.product_id.screen_connectique.name"/>^FS
+^FO50,205
+^A0N,20,15^FDCHARGEUR^FS
+^FO 140,205 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.charger == True">
+^FO 140,205 ^GD 25, 25, 2 ^FS
+^FO 140,205 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO200,205
+^A0N,20,15^FDWEB CAM^FS
+^FO 270,205 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.camera == True">
+^FO 270,205 ^GD 25, 25, 2 ^FS
+^FO 270,205 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO380,205
+^A0N,20,15^FDSUPPORT^FS
+^FO 450,205 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.support == True">
+^FO 450,205 ^GD 25, 25, 2 ^FS
+^FO 450,205 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO50,230
+^A0N,20,15^FDAutres:^FS
+^FO120,240
+^A0N,20,15^FD<t t-esc="lot.product_id.aio_text"/>^FS
+^FO50,320
+^A0N,10,5^FDNUMERO DE SERIE^FS
+^FO50,330^BY3
+^BCN,30,Y,N,N
+^FD<t t-esc="lot.name"/>^FS
+^FO50,260
+^A0N,10,5^FDCode produit constucteur^FS
+^FO50,270^BY3
+^BCN,30,Y,N,N
+^FD<t t-esc="lot.product_id.ref_variante"/>^FS
+^XZ
+            </t>
+        </template>
+
+
+        <template id="report_product_template_all_in_one_barcode_zpl">
+            <t t-foreach="docs" t-as="lot">
+^XA
+^CI28
+^FO10,10^GB790,380,1,B,1^FS
+^FO50,20^BY3
+^BCN,40,Y,N,N
+^FD<t t-esc="lot.product_id.barcode"/>^FS
+^FO600,20
+^A0N,20,15^FDGRADE^FS
+^FO750,20
+^A0N,20,15^FD<t t-esc="lot.product_id.grade.name"/>^FS
+^FO600,50
+^A0N,20,15^FDRAYE^FS
+^FO 750, 50 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.screen_raye == True">
+^FO 750, 50 ^GD 25, 25, 2 ^FS
+^FO 750, 50 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO600,80
+^A0N,20,15^FDTACHE^FS
+^FO 750, 80 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.screen_tache == True">
+^FO 750, 80 ^GD 25, 25, 2 ^FS
+^FO 750, 80 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO600,110
+^A0N,20,15^FDCASSE^FS
+^FO 750, 110 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.screen_casse == True">
+^FO 750, 110 ^GD 25, 25, 2 ^FS
+^FO 750, 110 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO600,140
+^A0N,20,15^FDLECTEUR^FS
+^FO 750, 140 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.lecteur == True">
+^FO 750, 140 ^GD 25, 25, 2 ^FS
+^FO 750, 140 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO600,170
+^A0N,20,15^FDWEB CAM^FS
+^FO 750, 170 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.camera == True">
+^FO 750, 170 ^GD 25, 25, 2 ^FS
+^FO 750, 170 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO50,100
+^A0N,20,15^FDMARQUE:^FS
+^FO130,100
+^A0N,20,15^FD<t t-esc="lot.product_id.maker.name"/>^FS
+^FO250,100
+^A0N,20,15^FDMODELE:^FS
+^FO330,100
+^A0N,20,15^FD<t t-esc="lot.product_id.model.name"/>^FS
+^FO50,125
+^A0N,20,15^FDDisques:^FS
+^FO120,125
+^A0N,20,15^FD(<t t-esc="lot.product_id.hard_disk_size.name"/> - <t t-esc="lot.product_id.hard_disk_technology.name"/>) ^FS
+^FO300,125
+^A0N,20,15^FD(<t t-esc="lot.product_id.hard_disk_size_2.name"/> - <t t-esc="lot.product_id.hard_disk_technology_2.name"/>)^FS
+^FO50,150
+^A0N,20,15^FDConfiguration (CPU / RAM):^FS
+^FO220,150
+^A0N,20,15^FD<t t-esc="str(lot.product_id.cpu.name).upper()"/> - <t t-esc="lot.product_id.total_ram"/> (Go)^FS
+^FO50,175
+^A0N,20,15^FDCarte graphique:^FS
+^FO200,175
+^A0N,20,15^FD<t t-esc="lot.product_id.graphic_card_technology.name"/>^FS
+^FO50,200
+^A0N,20,15^FDEcran:^FS
+^FO120,200
+^A0N,20,15^FD<t t-esc="lot.product_id.screen_size.name"/> / <t t-esc="lot.product_id.screen_resolution.name"/>^FS
+^FO350,200
+^A0N,20,15^FDChargeur^FS
+^FO 440,200 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.charger == True">
+^FO 440,200 ^GD 25, 25, 2 ^FS
+^FO 440,200 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO500,200
+^A0N,20,15^FDBATTERIE^FS
+^FO 600,200 ^GB 25, 25, 2 ^FS
+<t t-if="lot.product_id.battery == True">
+^FO 600,200 ^GD 25, 25, 2 ^FS
+^FO 600,200 ^GD 25, 25, 2,,L ^FS
+</t>
+^FO50,225
+^A0N,20,15^FDAutres:^FS
+^FO120,225
+^A0N,20,15^FD<t t-esc="lot.product_id.aio_text"/>^FS
+^FO50,260
+^A0N,10,5^FDCode produit constucteur^FS
+^FO50,270^BY3
+^BCN,30,Y,N,N
+^FD<t t-esc="lot.product_id.ref_variante"/>^FS
+^FO50,320
+^A0N,10,5^FDNUMERO DE SERIE^FS
+^FO50,330^BY3
+^BCN,30,Y,N,N
+^FD<t t-esc="lot.name"/>^FS
+^XZ
+            </t>
+        </template>
+
+        <template id="report_producttemplatebarcodemonitor">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="lot">
+                        <div class="border" style="width: 90%; display: inline-table; height:14rem;">
+                             <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;width: 18rem">
+                                        Marque: <strong t-field="lot.product_id.maker.name"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Code article HBS
+                                        <t t-if="lot.product_id.barcode">
+                                            <img alt="Barcode" t-if="len(lot.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(lot.product_id.barcode or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-elif="len(lot.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(lot.product_id.barcode or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(lot.product_id.barcode or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <span t-field="lot.product_id.barcode"/>
+                                        </t>
+                                        <t t-else=""><span class="text-muted">No barcode available</span></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        ETAT: <strong t-field="lot.product_id.product_state"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Modèle: <strong t-field="lot.product_id.model.name"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Grade: <strong t-field="lot.product_id.grade"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Rayé <t t-if="lot.product_id.screen_raye == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Taché: <t t-if="lot.product_id.screen_tache == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Cassé: <t t-if="lot.product_id.screen_casse == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Connectique: <strong t-field="lot.product_id.screen_connectique"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Chargeur: <t t-if="lot.product_id.charger == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Web Cam: <t t-if="lot.product_id.camera == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Avec support: <t t-if="lot.product_id.support == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Autre: <strong t-field="lot.product_id.aio_text"/>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Numéro de série
+                                        <t t-if="lot.name">
+                                            <img alt="Barcode" t-if="len(lot.name) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(lot.name or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-elif="len(lot.name) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(lot.name or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(lot.name or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <span t-field="lot.name"/>
+                                        </t>
+                                        <t t-else=""><span class="text-muted">No barcode available</span></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Code produit constucteur
+                                        <t t-if="lot.product_id.ref_variante">
+                                            <img alt="Barcode" t-if="len(lot.product_id.ref_variante) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(lot.product_id.ref_variante or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-elif="len(lot.product_id.ref_variante) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(lot.product_id.ref_variante or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(lot.product_id.ref_variante or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <span t-field="lot.product_id.ref_variante"/>
+                                        </t>
+                                        <t t-else=""><span class="text-muted">No barcode available</span></t>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_producttemplatebarcodeallinone">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="lot">
+                        <div class="border" style="width: 90%; display: inline-table; height:14rem;">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;width: 18rem">
+                                        Marque: <strong t-field="lot.product_id.maker.name"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Code article HBS
+                                        <t t-if="lot.product_id.barcode">
+                                            <img alt="Barcode" t-if="len(lot.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(lot.product_id.barcode or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-elif="len(lot.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(lot.product_id.barcode or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(lot.product_id.barcode or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <span t-field="lot.product_id.barcode"/>
+                                        </t>
+                                        <t t-else=""><span class="text-muted">No barcode available</span></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Grade: <strong t-field="lot.product_id.grade"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Modèle: <strong t-field="lot.product_id.model.name"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Rayé: <t t-if="lot.product_id.screen_raye == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Configuration (CPU / RAM): <strong t-field="lot.product_id.cpu.name"/> - <strong t-field="lot.product_id.total_ram"/> (Go)
+                                    </td>
+                                    <td class="text-left" style="height: 2rem">
+                                        Disque: <ul>
+                                                <li>
+                                                    <strong t-field="lot.product_id.hard_disk_size.name"/> - <strong t-field="lot.product_id.hard_disk_technology.name"/>
+                                                </li>
+                                                <li>
+                                                    <strong t-field="lot.product_id.hard_disk_size_2.name"/> - <strong t-field="lot.product_id.hard_disk_technology_2.name"/>
+                                                </li>
+                                            </ul>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Tache: <t t-if="lot.product_id.screen_tache == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Carte graphique: <strong t-field="lot.product_id.graphic_card_technology.name"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Casse: <t t-if="lot.product_id.screen_casse == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Ecran: <strong t-field="lot.product_id.screen_size.name"/> / <strong t-field="lot.product_id.screen_resolution.name"/>
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Lecteur: <t t-if="lot.product_id.lecteur == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Chargeur: <t t-if="lot.product_id.charger == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Batterie: <t t-if="lot.product_id.battery == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Web cam: <t t-if="lot.product_id.camera == True"><input type="checkbox" checked="True"/></t>
+                                        <t t-else=""><input type="checkbox"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" style="height: 2rem;">
+                                        Autre: <strong t-field="lot.product_id.aio_text"/>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Numéro de série
+                                        <t t-if="lot.name">
+                                            <img alt="Barcode" t-if="len(lot.name) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(lot.name or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-elif="len(lot.name) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(lot.name or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(lot.name or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <span t-field="lot.name"/>
+                                        </t>
+                                        <t t-else=""><span class="text-muted">No barcode available</span></t>
+                                    </td>
+                                    <td class="text-left" style="height: 2rem;">
+                                    </td>
+                                    <td class="text-center align-middle" style="height: 2rem">
+                                        Code produit constucteur
+                                        <t t-if="lot.product_id.ref_variante">
+                                            <img alt="Barcode" t-if="len(lot.product_id.ref_variante) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', quote_plus(lot.product_id.ref_variante or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-elif="len(lot.product_id.ref_variante) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', quote_plus(lot.product_id.ref_variante or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <img alt="Barcode" t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(lot.product_id.ref_variante or ''), 600, 150)" style="width:100%;height::4rem;"/>
+                                            <span t-field="lot.product_id.ref_variante"/>
+                                        </t>
+                                        <t t-else=""><span class="text-muted">No barcode available</span></t>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

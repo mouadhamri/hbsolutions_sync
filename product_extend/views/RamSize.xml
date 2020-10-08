@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- maker record start -->
+        <!-- tree view -->
+        <record model="ir.ui.view" id="hbs_ram_size_tree_view">
+            <field name="name">hbs.ram.size.tree.view</field>
+            <field name="type">tree</field>
+            <field name="model">hbs.ram.size</field>
+            <field name="arch" type="xml">
+                <tree string="Taille RAM">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record model="ir.ui.view" id="hbs_ram_size_form_view">
+            <field name="name">hbs.ram.size.form.view</field>
+            <field name="type">form</field>
+            <field name="model">hbs.ram.size</field>
+            <field name="arch" type="xml" >
+                <form string="Taille RAM">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record model="ir.ui.view" id="hbs_ram_size_search_view">
+            <field name="name">hbs.ram.size.search.view</field>
+            <field name="model">hbs.ram.size</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Taille RAM">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <separator/>
+                </search>
+            </field>
+        </record>
+        <!-- action record -->
+        <record model="ir.actions.act_window" id="hbs_ram_size_action">
+            <field name="name">Taille RAM</field>
+            <field name="res_model">hbs.ram.size</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hbs_ram_size_tree_view"/>
+        </record>
+        <!-- maker record end -->
+    </data>
+</odoo>

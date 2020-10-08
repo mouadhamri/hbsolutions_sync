@@ -1,0 +1,114 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="inherit_sale_price_line_tree">
+            <field name="name">sale.order.line.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <div class="o_td_label">
+                        <label for="warehouse_id" string="Entrepôt" style="font-weight:bold;"/>
+                    </div>
+                    <field name="warehouse_id" nolabel="1"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inherit_purchase_price_line_tree">
+            <field name="name">purchase.order.line.tree.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <div class="o_td_label">
+                        <label for="picking_type_id" string="Livrer à" style="font-weight:bold;"/>
+                    </div>
+                    <field name="picking_type_id" nolabel="1"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inherit_sale_price_line_form_wh">
+            <field name="name">sale.order.form.wh.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+            <field name="arch" type="xml">
+                <field name="warehouse_id" position="replace">
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inherit_purchase_price_line_form_wh">
+            <field name="name">purchase.order.form.wh.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="picking_type_id" position="replace">
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="inherit_base_view_partner_form_form_vc">
+            <field name="name">res.partner.form.vc.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="before">
+                    <field name="is_vc"/>
+                    <field name="linked_account" attrs="{'invisible': [('is_vc', '=', False)]}"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inherit_base_view_company_form_form_vc">
+            <field name="name">res.company.form.vc.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="extra" string="Extra">
+                        <group name="extra_accounting">
+                            <field name="vc_account_id"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inherit_stock_view_warehouse_vc">
+            <field name="name">stock.warehouse.form.vc.inherit</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="extra" string="Extra">
+                        <group name="extra_accounting">
+                            <field name="is_nd"/>
+                            <field name="nd_journal_id" domain="[('is_nd', '=', is_nd)]" attrs="{'invisible': [('is_nd', '=', False)]}"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+        <record id="view_account_journal_form_inherit_nd" model="ir.ui.view">
+            <field name="name">account.journal.form.nd</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook//page[@name='advanced_settings']/group" position="inside">
+                    <group>
+                        <field name="is_nd"/>
+                    </group>
+                </xpath>
+
+                    </field>
+         </record>
+
+        
+    </data>
+</odoo>

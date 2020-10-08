@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- maker record start -->
+        <!-- tree view -->
+        <record model="ir.ui.view" id="hbs_maker_tree_view">
+            <field name="name">hbs.maker.tree.view</field>
+            <field name="type">tree</field>
+            <field name="model">hbs.maker</field>
+            <field name="arch" type="xml">
+                <tree string="Fabricant">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record model="ir.ui.view" id="hbs_maker_form_view">
+            <field name="name">hbs.maker.form.view</field>
+            <field name="type">form</field>
+            <field name="model">hbs.maker</field>
+            <field name="arch" type="xml" >
+                <form string="Fabricant">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search view -->
+        <record model="ir.ui.view" id="hbs_maker_search_view">
+            <field name="name">hbs.maker.search.view</field>
+            <field name="model">hbs.maker</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Fabricant">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <separator/>
+                </search>
+            </field>
+        </record>
+        <!-- action record -->
+        <record model="ir.actions.act_window" id="hbs_maker_action">
+            <field name="name">Fabricant</field>
+            <field name="res_model">hbs.maker</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hbs_maker_tree_view"/>
+        </record>
+        <!-- maker record end -->
+    </data>
+</odoo>

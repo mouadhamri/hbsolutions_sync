@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_template_form__hbs_view" model="ir.ui.view">
+            <field name="name">product.template.hbs.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='%(product.product_attribute_value_action)d']" position="after">
+
+                        <button name="generate_default_code"  string="Générer le code" class="oe_highlight oe_read_only" type="object"/>
+                        <button name="mrp_bom_generate" attrs="{'invisible': [('hbs_category','not in',['desktop', 'aio', 'laptop'])]}" string="Générer une nomenclature" class="oe_highlight oe_read_only" type="object"/>
+                </xpath>
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="cost_currency_id" invisible="1"/>
+                    <field name="default_code_long" />
+                    <field name="barcode_long" />
+                    <field name="hbs_category" attrs="{'invisible': [('hbs_category','=',False)]}" readonly="1"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='general_information']/group" position="after">
+                    <group attrs="{'invisible': [('hbs_category','=',False)]} " string="Détails produit">
+                        <group string="Informations">
+                            <field name="maker" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'hard_disk', 'desktop','desktop_uc', 'screen', 'laptop_battery', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="grade" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="product_state"/>
+                            <field name="model" domain="[('hbs_category','=',hbs_category)]" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'ram', 'desktop','desktop_uc', 'laptop_battery', 'aio','screen'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="model_product" domain="[('hbs_category','=',hbs_category)]" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'ram', 'desktop','desktop_uc', 'laptop_battery', 'aio','screen'])]}"/>
+                            <field name="cpu" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'cpu', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="cpu_product" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'cpu', 'desktop','desktop_uc', 'aio'])]}"/>
+                            <field name="cpu_core_number" attrs="{'invisible': [('hbs_category','not in',['cpu'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="cpu_state" attrs="{'invisible': [('hbs_category','not in',['cpu'])]}"/>
+                            <field name="battery_state" attrs="{'invisible': [('hbs_category','not in',['laptop_battery'])]}"/>
+                            <field name="ram_form_factor" attrs="{'invisible': [('hbs_category','not in',['ram', 'desktop','desktop_uc'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Écran" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}">
+                            <!--<separator string="Écran" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" style="font-size:13px;"/>-->
+                            <field name="screen_product" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" options="{'no_create': True}"/>
+                            <field name="screen_raye" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" options="{'no_create': True}"/>
+                            <field name="screen_tache" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" options="{'no_create': True}"/>
+                            <field name="screen_casse" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" options="{'no_create': True}"/>
+                            <field name="screen_resolution" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="screen_size" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone', 'screen', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="screen_connectique" attrs="{'invisible': [('hbs_category','not in',['screen'])]}"/>
+                            <field name="screen_format" attrs="{'invisible': [('hbs_category','not in',['screen'])]}"/>
+<!--                            <field name="hdmi" attrs="{'invisible': [('hbs_category','not in',['screen'])]}"/>-->
+<!--                            <field name="wide" attrs="{'invisible': [('hbs_category','not in',['screen'])]}"/>-->
+                        </group>
+                    </group>
+                    <group attrs="{'invisible': [('hbs_category','=',False)]}">
+                        <group string="RAM" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio'])]}">
+                            <field name="ram_number" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio'])]}" />
+                            <field name="ram_size1" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',1)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_1" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',1)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',1)]}"/>
+                            <field name="ram_size2" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',2)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_2" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',2)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',2)]}"/>
+                            <field name="ram_size3" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',3)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_3" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',3)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',3)]}"/>
+                            <field name="ram_size4" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',4)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_4" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',4)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',4)]}"/>
+                            <field name="ram_size5" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',5)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_5" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',5)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',5)]}"/>
+                            <field name="ram_size6" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',6)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_6" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',6)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',6)]}"/>
+                            <field name="ram_size7" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',7)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_7" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',7)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',7)]}"/>
+                            <field name="ram_size8" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',8)]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_product_8" attrs="{'invisible': ['|',('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&lt;',8)],'required': [('hbs_category','in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio']),('ram_number','&gt;=',8)]}"/>
+                            <field name="ram_technology" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="ram_state" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'ram', 'desktop','desktop_uc', 'aio'])]}"/>
+                        </group>
+                        <group string="Disque dur" attrs="{'invisible': [('hbs_category','not in',['hard_disk', 'laptop', 'desktop','desktop_uc', 'aio'])]}">
+                            <field name="hard_disk_size" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="disk_product_1" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])],'required': [('hbs_category','in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}"/>
+                            <field name="hard_disk_technology" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="hard_disk_state" attrs="{'invisible': [('hbs_category','not in',['hard_disk', 'laptop', 'desktop','desktop_uc', 'aio'])]}"/>
+                        </group>
+                        <group string="Disque dur (2)" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}">
+                            <field name="hard_disk_size_2" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="disk_product_2" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])],'required': [('hbs_category','in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}"/>
+                            <field name="hard_disk_technology_2" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'hard_disk', 'desktop','desktop_uc', 'aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="hard_disk_state_2" attrs="{'invisible': [('hbs_category','not in',['hard_disk', 'laptop', 'desktop','desktop_uc', 'aio'])]}"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible': [('hbs_category','=',False)]}">
+                        <group string="Carte graphique" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'desktop','desktop_uc','aio'])]}">
+                            <field name="graphic_card_technology" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'desktop','desktop_uc','aio'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="graphic_card_product" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'desktop','desktop_uc','aio'])]}"/>
+                            <!--<field name="graphic_card_size" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'desktop'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>-->
+                        </group>
+                        <group string="Autre">
+                            <field name="keyboard" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone'])]}" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="keyboard_product" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone'])]}"/>
+                            <field name="camera" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'laptop_barebone','screen'])]}"/>
+                            <field name="battery" attrs="{'invisible': [('hbs_category','not in',['laptop'])]}"/>
+                            <field name="battery_product" attrs="{'invisible': [('hbs_category','not in',['laptop'])]}"/>
+                            <field name="charger" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette','screen'])]}"/>
+                            <field name="charger_product" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette','screen'])]}"/>
+                            <field name="support" attrs="{'invisible': [('hbs_category','not in',['screen'])]}"/>
+                            <field name="lecteur" attrs="{'invisible': [('hbs_category','not in',['laptop', 'tablette', 'desktop','desktop_uc','aio'])]}"/>
+                            <field name="aio_text"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+         <record id="product_category_hbs_form_view" model="ir.ui.view">
+            <field name="name">product.category.hbs.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="code_categ"/>
+                    <field name="child_id" invisible="1"/>
+                    <field name="separateur"/>
+                    <field name="code_sku"/>
+                    <field name="hbs_category"/>
+                    <field name="is_parent_category"/>
+                    <field name="quantity_control"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="group_synch_data" model="res.groups">
+        <field name="name">Données de synch</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+        <record id="group_synchronisation" model="res.groups">
+        <field name="name">Synchronisation</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    </data>
+</odoo>

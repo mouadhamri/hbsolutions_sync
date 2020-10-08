@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="module_category_purchase_hbs">
+            <field name="name">HBS - Achat &amp; Réception</field>
+            <field name="sequence">120</field>
+        </record>
+
+<!--        <record id="hbs_test_purchase_line_ttc" model="res.groups">-->
+<!--         <field name="name">Afficher Montant TTC / Coût d'achat Bon de test</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_detailed_purchase_line_ttc" model="res.groups">-->
+<!--         <field name="name">Afficher Montant TTC / Coût d'achat Bon de réception</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_receipt_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Bon d’arrivage</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_test_product_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Bon de test</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_detailed_receipt_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Bon de réception</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_supplier_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Fournisseur</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_transporter_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Transporteur</field>-->
+<!--            <field name="category_id" ref="module_category_purchase_hbs"/>-->
+<!--        </record>-->
+
+        <record id="hbs_create_product" model="res.groups">
+            <field name="name">Création de produit</field>
+            <field name="category_id" ref="module_category_purchase_hbs"/>
+        </record>
+
+        <record id="hbs_unlink_product" model="res.groups">
+            <field name="name">Suppression de produit</field>
+            <field name="category_id" ref="module_category_purchase_hbs"/>
+        </record>
+
+        <record id="hbs_update_product" model="res.groups">
+            <field name="name">Modification de produit</field>
+            <field name="category_id" ref="module_category_purchase_hbs"/>
+        </record>
+
+<!--        <record model="ir.module.category" id="module_category_sale_hbs">-->
+<!--            <field name="name">HBS - Vente &amp; Livraison</field>-->
+<!--            <field name="sequence">130</field>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_customer_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Client</field>-->
+<!--            <field name="category_id" ref="module_category_sale_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_sale_order_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Bon de commande</field>-->
+<!--            <field name="category_id" ref="module_category_sale_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_communication_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Moyen de communication</field>-->
+<!--            <field name="category_id" ref="module_category_sale_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record model="ir.module.category" id="module_category_invoicing_payment_hbs">-->
+<!--            <field name="name">HBS - Facturation &amp; Paiement</field>-->
+<!--            <field name="sequence">140</field>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_invoice_customer_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu factures clients</field>-->
+<!--            <field name="category_id" ref="module_category_invoicing_payment_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_payment_mode_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Mode de paiement</field>-->
+<!--            <field name="category_id" ref="module_category_invoicing_payment_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_guarantee_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Garantie</field>-->
+<!--            <field name="category_id" ref="module_category_invoicing_payment_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_payment_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Liste des paiements</field>-->
+<!--            <field name="category_id" ref="module_category_invoicing_payment_hbs"/>-->
+<!--        </record>-->
+
+<!--        <record id="hbs_register_payment_menu_view" model="res.groups">-->
+<!--         <field name="name">Accès au menu Enregistrer un paiement</field>-->
+<!--            <field name="category_id" ref="module_category_invoicing_payment_hbs"/>-->
+<!--        </record>-->
+
+        <record model="ir.module.category" id="module_category_job_hbs">
+            <field name="name">HBS - Métier</field>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="hbs_job_menu_view" model="res.groups">
+         <field name="name">Métier HBS</field>
+            <field name="category_id" ref="module_category_job_hbs"/>
+        </record>
+
+<!--        <record id="hbs_fct_other_menu_view" model="res.groups">-->
+<!--         <field name="name">Autre fonctionnalités</field>-->
+<!--            <field name="category_id" ref="module_category_job_hbs"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

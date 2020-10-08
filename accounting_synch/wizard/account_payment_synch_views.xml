@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+         <record id="synchronise_selected_payment_form_view" model="ir.ui.view">
+            <field name="name">action.synchronise.selected.payment.wizard.form</field>
+            <field name="model">account.payment.synch</field>
+            <field name="arch" type="xml">
+                <form>
+                    <strong>Ces paiements seront synchronisés avec la deuxième base</strong>
+                    <footer>
+                        <button string="Synchronisation" name="synchronise_payment" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_synchronise_selected_payment"
+           name="Synchroniser les paiements"
+            res_model="account.payment.synch"
+                    binding_model="account.payment"
+                    view_mode="form"
+                    target="new" />
+    </data>
+</odoo>

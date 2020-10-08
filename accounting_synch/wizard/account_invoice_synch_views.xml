@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+         <record id="synchronise_selected_invoices_form_view" model="ir.ui.view">
+            <field name="name">action.synchronise.selected.invoices.wizard.form</field>
+            <field name="model">account.invoice.synch</field>
+            <field name="arch" type="xml">
+                <form>
+                    <strong>Ces factures seront synchronisées avec la deuxième base:</strong>
+                    <footer>
+                        <button string="Synchronisation" name="synchronise_invoice" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_synchronise_selected_invoices"
+          name="Synchroniser les factures"
+            res_model="account.invoice.synch"
+                    binding_model="account.move"
+                    view_mode="form"
+                    target="new"
+                    />
+        <!--                    binding_views="list"-->
+
+
+        />
+
+    </data>
+</odoo>

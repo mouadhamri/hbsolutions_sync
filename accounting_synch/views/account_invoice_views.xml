@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+         <act_window id="action_synchronise_selected_invoices"
+            multi="True"
+            key2="client_action_multi" name="Synchroniser les factures"
+            res_model="account.invoice.synch" src_model="account.move"
+            view_mode="form" target="new" view_type="form" groups="accounting_synch.group_synchronisation"/>
+
+    </data>
+</odoo>
